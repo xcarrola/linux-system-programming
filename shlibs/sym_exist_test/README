@@ -1,0 +1,6 @@
+Demonstrate various techniques for checking for symbol existence; in
+particular, compare the use of weak symbols vs dlsym(RTLD_DEFAULT, sym).
+
+To see the demonstration, run the script:
+
+	sh Build_and_run.sh

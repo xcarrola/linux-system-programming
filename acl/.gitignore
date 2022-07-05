@@ -1,0 +1,3 @@
+*.o
+acl_update
+acl_view

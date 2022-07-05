@@ -1,0 +1,6 @@
+Can a public (i.e., RTLD_GLOBAL) symbol in a dlopen()-ed library be used
+to satisfy a subsequent (i.e., lazy) reference in the main program (or,
+for that matter, a reference from a library earlier in the link map)? The
+code here shows that it can. If, however, the library is loaded with the
+RTLD_LOCAL flag, then (as expected), the library can't be used to
+resolve symbol references in the main program.

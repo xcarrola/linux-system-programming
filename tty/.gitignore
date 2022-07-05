@@ -1,0 +1,6 @@
+*.o
+demo_SIGWINCH
+ex.show_tty_attr
+new_intr
+no_echo
+test_tty_functions

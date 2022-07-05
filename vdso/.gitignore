@@ -1,0 +1,3 @@
+*.o
+syscall_gettimeofday
+vdso_gettimeofday

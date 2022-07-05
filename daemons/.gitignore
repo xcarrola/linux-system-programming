@@ -1,0 +1,4 @@
+*.o
+daemon_SIGHUP
+t_syslog
+test_become_daemon

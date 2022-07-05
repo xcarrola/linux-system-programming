@@ -1,0 +1,3 @@
+*.o
+free_and_sbrk
+malloc_bytes

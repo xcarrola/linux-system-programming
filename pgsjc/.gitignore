@@ -1,0 +1,7 @@
+*.o
+catch_SIGHUP
+disc_SIGHUP
+handling_SIGTSTP
+job_mon
+orphaned_pgrp_SIGHUP
+t_setsid

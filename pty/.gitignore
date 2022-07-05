@@ -1,0 +1,4 @@
+*.o
+pty_expt
+script
+unbuffer

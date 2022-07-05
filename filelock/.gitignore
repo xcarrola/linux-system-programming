@@ -1,0 +1,3 @@
+*.o
+i_fcntl_locking
+t_flock

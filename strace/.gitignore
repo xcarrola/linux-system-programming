@@ -1,0 +1,3 @@
+*.o
+fork_exec
+hello_world

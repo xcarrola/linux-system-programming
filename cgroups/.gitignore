@@ -1,0 +1,5 @@
+*.o
+alloc_mem
+fork_bomb
+memcg_eventfd
+poll_cgroup_events

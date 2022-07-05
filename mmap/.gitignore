@@ -1,0 +1,7 @@
+*.o
+anon_mmap
+mmap_create
+mmcat
+mmcopy
+t_mmap
+t_remap_file_pages

@@ -1,0 +1,5 @@
+*.o
+setxattr
+t_setxattr
+xattr_view
+xattr_view_simple

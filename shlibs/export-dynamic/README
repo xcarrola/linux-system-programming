@@ -1,0 +1,35 @@
+prog.c (main program)
+	- Defines main_f1()
+	- Defines main_f2()
+	- Calls abc() (in libabc.so)
+	- Loads (dlopen()) the library named in argv[1] and looks up the
+	  address of the symbol named dynload_xyz(). This function is then
+	  called, with argv[2] as its argument. The arguments of this
+	  program should be:
+
+		argv[1]  "./libdynload.so"
+		argv[2]  "main_f1" or "main_f2"
+
+libabc.c
+	- Used to build libabc.so
+	- Has a function, abc(), called from main, which calls main_f1().
+	  This forces "main_f1" in main to be placed in the dynamic symbol
+	  table at static link time.  (By default, symbols are placed in
+	  the dynamic symbol table only if the static linker sees that they
+	  are needed at static link time. Other public symbols in main are
+	  not placed in dynamic symbol table by default, unless the
+	  --export-dynamic linker option is employed.)
+
+libdynload.c
+	- Used to build libdynload.so
+	- Has a function dynload_xyz() that does a dlsym(RTLD_DEFAULT)
+	- lookup for a symbol (the name given in argv[2]). This lookup will 
+	  always succeed when looking up "main_f1", but will only succeed
+	  for "main_f2" if main was build with --export-dynamic, since
+	  otherwise the linker has no reason to place "main_f2" into 
+	  main's dynamic symbol table.
+
+Build.sh
+	- Build the program and libraries
+	- Perform example runs showing the effect when the main program
+          is build with and without the --export-dynamic linker option.

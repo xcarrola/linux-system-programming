@@ -1,0 +1,15 @@
+*.o
+demo_sigio
+epoll_flags_fork
+epoll_input
+ex.epoll_pipes
+ex.is_chat_cl
+ex.is_chat_sv
+ex.poll_pipes_write
+i_epoll
+multithread_epoll_wait
+poll_pipes
+select_mq
+self_pipe
+t_select
+t_select_simple

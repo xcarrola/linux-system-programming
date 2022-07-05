@@ -1,0 +1,12 @@
+*.o
+ex.pshm_xfr_reader
+ex.pshm_xfr_writer
+pshm_create
+pshm_create_simple
+pshm_read
+pshm_seqnum_get
+pshm_seqnum_init
+pshm_ucase_bounce
+pshm_ucase_send
+pshm_unlink
+pshm_write

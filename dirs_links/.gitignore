@@ -1,0 +1,12 @@
+*.o
+bad_symlink
+ex.find_symlinks
+ex.openat_expmt
+file_type_stats
+list_files
+list_files_readdir_r
+nftw_dir_tree
+nftw_dtree
+t_dirbasename
+t_unlink
+view_symlink

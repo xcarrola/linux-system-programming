@@ -1,0 +1,5 @@
+*.o
+demo_inotify
+dnotify
+inotify_dtree
+rand_dtree

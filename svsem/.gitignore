@@ -1,0 +1,8 @@
+*.o
+svsem_create
+svsem_demo
+svsem_info
+svsem_mon
+svsem_op
+svsem_rm
+svsem_setall

@@ -1,0 +1,12 @@
+Demonstrate how to transition from a library that doesn't use symbol
+versioning to a library that does use symbol versioning.
+
+The shell script builds two binaries:
+
+p1	Linked against non-symbol-versioned library
+p2	Linked against symbol-versioned library
+
+When p1 is run, it uses the "base" version of the symbol from the
+symbol-versioned library. (The "base" version is the one identified
+by Index 1 and 2 in the library's .gnu.version_d section; see
+https://www.akkadia.org/drepper/symbol-versioning.)

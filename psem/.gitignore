@@ -1,0 +1,12 @@
+*.o
+psem_create
+psem_create_simple
+psem_getvalue
+psem_post
+psem_timedwait
+psem_trywait
+psem_tty_lockstep_init
+psem_tty_lockstep_second
+psem_unlink
+psem_wait
+thread_incr_psem

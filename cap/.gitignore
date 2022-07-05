@@ -1,0 +1,11 @@
+*.o
+cap_hex_to_text
+cap_launcher
+cap_text
+check_password_caps
+demo_file_caps
+setuid_root_cap_dumb
+show_secbits
+t_cap_get_file
+t_cap_get_pid
+t_cap_set_file

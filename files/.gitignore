@@ -1,0 +1,9 @@
+*.o
+chiflag
+ex.chmod_addx
+simple_stat
+t_chown
+t_stat
+t_umask
+t_utime
+t_utimes

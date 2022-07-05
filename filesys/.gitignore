@@ -1,0 +1,5 @@
+*.o
+t_mount
+t_statfs
+t_statvfs
+t_umount

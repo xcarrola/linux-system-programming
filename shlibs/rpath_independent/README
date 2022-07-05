@@ -1,0 +1,93 @@
+Demonstrate that the main program's rpath (DT_RUNPATH) list is not used to
+search for the dependencies of another object (e.g., a shared library that
+the main program uses). More generally, one object's rpaths are not used
+when searching for the dependencies of another object.
+
+Note however, that this is *not* true for the older style rpath (DT_RPATH),
+where the main program's rpath can ne used to search for the dependencies
+of another object. To see this, change the definition of 'dtags' in the
+script to:
+
+    dtags="-Wl,--disable-new-dtags"
+
+And then run the script with an argument.
+
+==
+
+The files in this directory are used to build the following objects (all in
+the same directory):
+
+liby.so
+
+libx.so		A library that depends on (and calls a function in) liby.so
+
+prog		A program that depends on (and calls a function in) libx.so.
+
+The main program (prog) is built with an rpath that specifies the location
+of libx.so. This means that the dynamic linker will be able to find libx.so
+at run time, without the use of LD_LIBRARY_PATH.
+
+Since libx.so depends on liby.so, the dynamic linker must also be able to
+find liby.so at run time. This could be done by embedding an rpath entry in
+libx.so. If this is not done, the dynamic linker won't be able to find
+liby.so, unless LD_LIBRARY_PATH is defined.
+
+The accompanying build script can be used to demonstrate the result when
+libx.so is built with and without an rpath.
+
+By default, the script builds libx.so with an rpath:
+
+    $ sh Build_and_run.sh 
+    Building libx.so with an rpath
+
+    Dependencies of prog:
+      NEEDED               libx.so
+      NEEDED               libc.so.6
+
+    Dependencies of libx.so:
+      NEEDED               liby.so
+      NEEDED               libc.so.6
+
+    File layout:
+            prog
+            sub/liby.so
+            sub/libx.so
+
+    objdump -p prog | grep "R[UN]*PATH"
+      RUNPATH              $ORIGIN/sub
+    objdump -p sub/libx.so | grep "R[UN]*PATH"
+      RUNPATH              $ORIGIN
+
+    ./prog
+    Called modx-xxx
+    Called mody-yyy
+
+But if the script is supplied with a command-line argument, libx.so is not
+build with an rpath:
+
+    $ sh Build_and_run.sh x
+    Building libx.so without an rpath
+
+    Dependencies of prog:
+      NEEDED               libx.so
+      NEEDED               libc.so.6
+
+    Dependencies of libx.so:
+      NEEDED               liby.so
+      NEEDED               libc.so.6
+
+    File layout:
+            prog
+            sub/liby.so
+            sub/libx.so
+
+    objdump -p prog | grep "R[UN]*PATH"
+      RUNPATH              $ORIGIN/sub
+    objdump -p sub/libx.so | grep "R[UN]*PATH"
+
+    ./prog: error while loading shared libraries: liby.so: cannot open
+    shared object file: No such file or directory
+
+From the above, we also see that $ORIGIN in libx.so is interpreted relative
+to the location of libx.so itself (and not relative to the location of the
+main program).

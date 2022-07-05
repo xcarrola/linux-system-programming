@@ -1,0 +1,4 @@
+*.o
+demo_setuid
+ex.setuid_expt
+simple_setuid

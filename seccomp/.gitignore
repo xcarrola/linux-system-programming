@@ -1,0 +1,11 @@
+*.o
+dump_seccomp_filter
+ex.seccomp_no_children
+libseccomp_demo
+seccomp_arg64
+seccomp_bench
+seccomp_control_open
+seccomp_deny_gettimeofday
+seccomp_deny_open
+seccomp_launch
+seccomp_perf

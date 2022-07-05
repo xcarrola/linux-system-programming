@@ -1,0 +1,5 @@
+*.o
+check_password
+show_ids
+t_getpwent
+t_getpwnam_r

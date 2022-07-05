@@ -1,0 +1,13 @@
+#rpn
+# Calculate (3**3)*(4**4)
+3
+push
+3
+**
+push
+4
+push
+4
+**
+*
+=

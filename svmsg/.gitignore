@@ -1,0 +1,10 @@
+*.o
+svmsg_chqbytes
+svmsg_create
+svmsg_file_client
+svmsg_file_server
+svmsg_info
+svmsg_ls
+svmsg_receive
+svmsg_rm
+svmsg_send

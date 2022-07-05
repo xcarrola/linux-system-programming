@@ -1,0 +1,13 @@
+*.o
+change_case
+ex.pipe_ucase
+ex.pipeline_builder
+ex.unique_tokens
+fifo_seqnum_client
+fifo_seqnum_server
+pipe_ls_wc
+pipe_ls_wc_simple
+pipe_sync
+popen_glob
+simple_pipe
+simple_popen

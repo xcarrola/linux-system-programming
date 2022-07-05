@@ -1,0 +1,12 @@
+VER_1 {
+    global:
+	xxx_abc;
+    local: *;
+};
+
+VER_2 {
+    global:
+	xxx_abc;
+	xxx_def;
+    local: *;
+} VER_1;

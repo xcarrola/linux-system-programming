@@ -1,0 +1,14 @@
+*.o
+ex.svshm_psem_xfr_reader
+ex.svshm_psem_xfr_writer
+svshm_attach
+svshm_create
+svshm_info
+svshm_lock
+svshm_mon
+svshm_psem_seqnum_get
+svshm_psem_seqnum_init
+svshm_rm
+svshm_unlock
+svshm_xfr_reader
+svshm_xfr_writer

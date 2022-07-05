@@ -1,0 +1,4 @@
+*.o
+procfs_pidmax
+procfs_user_exe
+t_uname

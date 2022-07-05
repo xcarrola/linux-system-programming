@@ -1,0 +1,30 @@
+Demonstrate that when a library is dlopen()-ed with RTLD_GLOBAL, its
+symbols are made available to satisfy relocations for a subsequently
+dlopen()-ed library.
+
+libfirst.so
+	Defines two public functions, funcx() and func1().
+
+libsecond.so
+	Defines two public functions, funcx() and func2().
+
+	func2() calls funcx() and func1(). If libfirst.so is opened
+	with RTLD_GLOBAL, then these references will resolve to the
+	definitions in libfirst.so. But if libfirst.so is opened
+	with RTLD_LOCAL, then the funcx() reference will resolve
+	to the definition in libsecond.so, and the reference to
+	func1() will yield a run-time resolution error.
+
+The main program (rtld_global_test) opens the libraries in the order
+libfirst.so and then libsecond.so. libfirst.so is opened with the
+RTLD_GLOBAL flag, unless a command-line argument is supplied, in which
+case it.so is opened with the converse flag, RTLD_LOCAL.
+
+The main program then looks up the address of "func2", and calls that
+function.
+
+Observe the difference in the last few lines of output when running
+the main program without and then with a command-line argument:
+
+    ./rtld_global_test
+    ./rtld_global_test x

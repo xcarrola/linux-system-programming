@@ -1,0 +1,10 @@
+*.o
+auxvec
+bad_longjmp
+display_env
+longjmp
+modify_env
+necho
+setjmp_vars
+simple_longjmp
+t_getenv
